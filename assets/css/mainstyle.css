@@ -1,0 +1,32 @@
+
+.hero-img{
+    background-image: url("https://thumbs.dreamstime.com/b/summer-bbq-picnic-food-corner-border-over-rustic-wood-banner-background-assorted-grilled-meats-vegetables-fruits-salad-183772075.jpg");
+    height: 20vh;
+    justify-content: center;
+    background-size:cover;
+    color: rgb(255, 255, 255);
+    font-family: 'Fredericka the Great', cursive;
+    font-style: oblique;
+   
+   
+ 
+  
+}
+
+.brand-logo{
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 10px;
+    
+}
+
+#nav-mobile{
+ font-family: 'Montserrat', sans-serif;   
+}
+
+
+
+.flow-text{
+margin-top: -3px;
+font-size: 40px;
+
+}
