@@ -26,7 +26,34 @@
 
 
 .flow-text{
-margin-top: -3px;
-font-size: 40px;
+margin-top: -5px;
+font-size: 45px;
 
+}
+
+.about{
+    color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+ 
+}
+
+#AboutUs{
+    font-size: 25px;
+   margin-left: 700px;
+   margin-top: 0%;
+   margin-bottom: 0%;
+
+}
+
+.row{
+    font-family: 'Montserrat', sans-serif;
+  
+}
+
+#cards{
+    
+    background-color:#aeea8b;
+ 
 }
