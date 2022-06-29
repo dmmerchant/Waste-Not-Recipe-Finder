@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mainstyle.css">
     <title>Wast-Not Recipe Finder</title>
 </head>
 <header class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper light-green darken-1 ">
             <a class="brand-logo">Waste-Not Recipe Finder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#">Home</a></li>
@@ -22,90 +26,103 @@
 </header>
 
 <body>
-    <div class="containter">
-        <div class="row">
+    <div class="hero-img">
+        <div class="row card transparent z-depth-5">
             <div class="center-align section col s12">
-                <p id="foodFact" class="flow-text">Food Can Be Funny</p>          
-            </div>
-            <div class="center-align section col s12">
-                <a class="waves-effects waves-light btn">Click for Food Fact</a>   
+                <p class="flow-text">Food Can Be Funny</p>          
             </div>
         </div>
     </div>
 
-    <div class="container section about">
-        <p class="center-align">This Will Be The About Us Section</p>
+    <div id="about" class="section about">
+        <h1 id="AboutUs" class="center-align">About Us</h1>
+        <p class="center-align">We have all tried different apps and websites that claim to find the perfect recipe that you can make with the ingredients you have
+            and we have all come to find out that these apps and websites don't work as expected. This gave us here at Waste-Not Recipe Finder the drive to create
+            the best website to help YOU find the recipes you can make with the items in your pantry. Not only can you input the items you have in your pantry,
+            you can include any allergies you have and whatever diet you follow and we will provide with a list of recipes that fit just that. We also allow you
+            to input any ingredients that you may have to make a cocktail and with these inputs we will provide the best cocktails idea for you to have with your meal.
+        </p>
     </div>
 
-    <div class="container section utilities">
-        <div class="row">
-            
-                    <div class="col s4">
-                        <div class="card">
-                            <div class="row">
-                                <h3 class="center-align">User Settings</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div id="userAllergens">
-                                        </div>
-                                        <div class="input-field col s12 diet">
-                                            <input placeholder="Keto, Veagan, ect." id="diet" type="text" class="validate">
-                                            <label for="diet">Diet</label>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="center-align col s12">
-                                    <a class="waves-effects waves-light btn">Go To Favorties</a>
-                                </div>
+    <div class="divider"></div>
+
+    <section id="cards">
+        <div class="section utilities">
+            <div class="row">            
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">User Settings</h3>
+                            <div class="center-align col s12">
+                                <a class="waves-effects waves-light btn">Go To Favorties</a>
                             </div>
-                        </div>
-                        
-                    </div>
-                    <div class="col s4">
-                        <div class="card">
-                            <div class="row">
-                                <h3 class="center-align">Food Search</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 foodInput">
-                                            <input placeholder="What ingredients do you have?" id="ingredients" type="text" class="validate">
-                                            <label for="ingredients">Ingredients</label>
-                                        </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12 allergies">
+                                        <input placeholder="Nuts, Shellfish, ect." id="allergens" type="text" class="validate">
+                                        <label for="allergies">Allergies</label>
                                     </div>
-                                </form>
-                                <div class="center-align col s12">
-                                    <a class="wave-effects waves-light btn">Search</a>
+                                    <div class="input-field col s12 diet">
+                                        <input placeholder="Keto, Veagan, ect." id="diet" type="text" class="validate">
+                                        <label for="diet">Diet</label>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>                                
                         </div>
                     </div>
-                    <div class="col s4">
-                        <div class="card">
-                            <div class="row">
-                                <h3 class="center-align">Drink Search</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 drinkInput">
-                                            <input placeholder="What drink ingredients do you have?" id="drinkIngredients" type="text" class="validate">
-                                            <label for="drinkIngredients">Drink Ingredients</label>
-                                        </div>
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Food Search</h3>
+                            <div class="center-align col s12">
+                                <a class="wave-effects waves-light btn">Search</a>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12 foodInput">
+                                        <input placeholder="What ingredients do you have?" id="ingredients" type="text" class="validate">
+                                        <label for="ingredients">Ingredients</label>
                                     </div>
-                                </form>
-                                <div class="center-align col s12">
-                                    <a class="wave-effects waves-light btn">Search</a>
                                 </div>
+                            </form>                                
+                            <div class="col s12">
+                                <h4 class="center-align">Food Items</h4>
+                                <div class="divider"></div>
+                                <ul id="userFoodInput" class="center-align"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Drink Search</h3>
+                            <div class="center-align col s12">
+                                <a class="wave-effects waves-light btn">Search</a>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12 drinkInput">
+                                        <input placeholder="What drink ingredients do you have?" id="drinkIngredients" type="text" class="validate">
+                                        <label for="drinkIngredients">Drink Ingredients</label>
+                                    </div>
+                                </div>
+                            </form>                                
+                            <div class="col s12 userDrinkInput">
+                                <h4 class="center-align">Drink Items</h4>
+                                <div class="divider"></div>
+                                <ul id="userDrinkInput" class="center-align"></ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </section>
+        
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./assets/js/general_script.js"></script>
-<script src="./assets/js/index_script.js"></script>
 </html>
