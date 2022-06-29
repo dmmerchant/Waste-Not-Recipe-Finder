@@ -9,7 +9,7 @@ async function setFact(){
 }
 
 
-async function searchRecipes(ingredients,diet,allergens){
+async function searchRecipes(ingredients){
     results = await searchRecipesAPI(ingredients,diet,allergens);
     console.log(results)
 }
@@ -26,9 +26,7 @@ Submit Search (Food)
 Submit Search (Drink)
 */
 //#endregion
-getUserProfile()
-setFact()
-searchRecipes()
-renderAllergens(allergenEl)
+getUserProfile();
+renderAllergens(allergenEl);
 
-allergenEl.on('change', 'input',updateAllergen)
+allergenEl.on('change', 'input',updateAllergen);

@@ -25,10 +25,10 @@ var screens = [
     allergens: [],
     diet: "text",
     favorites: [{
-        id:
+        id: 
         image:
         title:
-        type:
+        type: "drink"/"food"
     }],
     currentIngredients:[]
 }
