@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Waste-Not | User Profile</title>
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a class="brand-logo">Waste-Not Recipe Finder</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">User Profile</a></li>
+                    <li><a href="#">Food</a></li>
+                    <li><a href="#">Drinks</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <aside>
+        <form>
+            <label>Diet</label>
+            <select class="browser-default">
+                <option value="" disabled selected>Choose your diet</option>
+                <option value="1">Paleo</option>
+                <option value="2">Keto</option>
+                <option value="3">Vegan</option>
+            </select>
+            <label>Allergies</label>
+            <div class="chips chips-autocomplete">
+                <input class="custom-class">
+            </div>
+            <label>Current Ingredients</label>
+            <div class="chips chips-autocomplete">
+                <input class="custom-class">
+            </div>
+        </form>
+        <a class="waves-effect waves-light btn">Save</a>
+    </aside>
+
+    <section>
+        <h2>Favorites</h2>
+        <!-- Append favorite recipe cards  -->
+        <div id="favorites-container"></div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
