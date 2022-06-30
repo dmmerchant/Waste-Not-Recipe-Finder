@@ -3,15 +3,15 @@
 var screens = [
     {
         ScreenName: "Home",
-        ScreenFile: "index.html"
+        ScreenFile: "./index.html"
     },
     {
         ScreenName: "Profile",
-        ScreenFile: "profile.html"
+        ScreenFile: "./profile.html"
     },
     {
         ScreenName: "Results",
-        ScreenFile: "results.html"
+        ScreenFile: "./single-repo.html?ingredients="
     },
     {
         ScreenName: "Recipe",
@@ -98,12 +98,14 @@ function updateAllergen(event) {
 
 
 function renderAllergens(location) {
+    console.log(allergenList)
     allergenList.forEach(allergen => {
         var checked = ""
     if (userProfile.allergens.includes(allergen)) {
         checked = ' checked="checked" '
     };
-    var checkBoxEl = $('<p><label><input type="checkbox" data-allergen="' + allergen + '" class="' + 'filled-in" ' +  checked + ' /><span>' + allergen + '</span></p>')
+    var checkBoxEl = $('<p><label><input type="checkbox" data-allergen="' + allergen + '" class="' + 'filled-in" ' +  checked + ' /><span>' + allergen + '</span></p>');
+    console.log(checkBoxEl);
     checkBoxEl.appendTo(location)
     })
 }
