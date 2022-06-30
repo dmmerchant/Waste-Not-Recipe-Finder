@@ -1,0 +1,14 @@
+body {
+    background-color:#aeea8b;
+}
+
+#settings,
+#favorites {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    /* border: solid;
+    border-width: 2px; */
+    height: 90vh;
+}
