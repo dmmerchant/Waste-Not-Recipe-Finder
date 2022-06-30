@@ -2,9 +2,15 @@
 <html lang="en-US">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mainstyle.css">
+    <link rel="stylesheet" href="./assets/css/profile-style.css">
     <title>Waste-Not | User Profile</title>
 </head>
 
@@ -23,32 +29,65 @@
         </nav>
     </header>
 
-    <aside>
-        <form>
-            <label>Diet</label>
-            <select class="browser-default">
-                <option value="" disabled selected>Choose your diet</option>
-                <option value="1">Paleo</option>
-                <option value="2">Keto</option>
-                <option value="3">Vegan</option>
-            </select>
-            <label>Allergies</label>
-            <div class="chips chips-autocomplete">
-                <input class="custom-class">
+    <div class="row">
+        <aside class="col s3">
+            <div id="settings">
+                <form>
+                    <h2>Settings</h2>
+                    <div class="input-field col s12">
+                        <select id="diet-container">
+                            <!-- Add functionality in the future to dynamically generate these options using JS -->
+                            <option value="" disabled selected>Choose your diet</option>
+                            <option value="1">Gluten Free</option>
+                            <option value="2">Ketogenic</option>
+                            <option value="3">Vegetarian</option>
+                            <option value="4">Lacto-Vegetarian</option>
+                            <option value="5">Ovo-Vegetarian</option>
+                            <option value="6">Vegan</option>
+                            <option value="7">Pescetarian</option>
+                            <option value="8">Paleo</option>
+                            <option value="9">Primal</option>
+                            <option value="10">Low FODMAP</option>
+                            <option value="11">Whole30</option>
+                        </select>
+                        <label>Diet</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select multiple id="allergies-container">
+                            <!-- Add functionality in the future to dynamically generate these options using JS -->
+                            <option value="" disabled selected>Choose your allergies</option>
+                            <option value="1">Dairy</option>
+                            <option value="2">Egg</option>
+                            <option value="3">Gluten</option>
+                            <option value="4">Grain</option>
+                            <option value="5">Peanut</option>
+                            <option value="6">Seafood</option>
+                            <option value="7">Sesame</option>
+                            <option value="8">Shellfish</option>
+                            <option value="9">Soy</option>
+                            <option value="10">Sulfite</option>
+                            <option value="11">Tree Nut</option>
+                            <option value="12">Wheat</option>
+                        </select>
+                        <label>Allergies</label>
+                    </div>
+                    <label>Current Ingredients</label>
+                    <div class="chips chips-autocomplete">
+                        <input class="custom-class">
+                    </div>
+                </form>
+                <a class="waves-effect waves-light btn">Save</a>
             </div>
-            <label>Current Ingredients</label>
-            <div class="chips chips-autocomplete">
-                <input class="custom-class">
-            </div>
-        </form>
-        <a class="waves-effect waves-light btn">Save</a>
-    </aside>
+        </aside>
 
-    <section>
-        <h2>Favorites</h2>
-        <!-- Append favorite recipe cards  -->
-        <div id="favorites-container"></div>
-    </section>
+        <section class="col s9">
+            <div id="favorites">
+                <h2>Favorites</h2>
+                <!-- Append favorite recipe cards  -->
+                <div id="favorites-container"></div>
+            </div>
+        </section>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script.js"></script>
