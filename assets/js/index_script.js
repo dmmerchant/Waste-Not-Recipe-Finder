@@ -10,7 +10,7 @@ async function setFact(){
 
 
 async function searchRecipes(ingredients){
-    results = await searchRecipesAPI(ingredients,diet,allergens);
+    results = await searchRecipesAPI(ingredients);
     console.log(results)
 }
 
