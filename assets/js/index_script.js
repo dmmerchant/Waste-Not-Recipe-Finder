@@ -29,4 +29,4 @@ Submit Search (Drink)
 getUserProfile();
 renderAllergens(allergenEl);
 
-allergenEl.on('change', 'input',updateAllergen);
+allergenEl.on('change', 'input', updateAllergen);

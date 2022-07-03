@@ -35,7 +35,7 @@
                 <form>
                     <h2>Settings</h2>
                     <div class="input-field col s12">
-                        <select id="diet-container">
+                        <select id="userDiet">
                             <!-- Add functionality in the future to dynamically generate these options using JS -->
                             <option value="" disabled selected>Choose your diet</option>
                             <option value="1">Gluten Free</option>
@@ -50,33 +50,17 @@
                             <option value="10">Low FODMAP</option>
                             <option value="11">Whole30</option>
                         </select>
-                        <label>Diet</label>
+                        <label>Diet:</label>
                     </div>
-                    <div class="input-field col s12">
-                        <select multiple id="allergies-container">
-                            <!-- Add functionality in the future to dynamically generate these options using JS -->
-                            <option value="" disabled selected>Choose your allergies</option>
-                            <option value="1">Dairy</option>
-                            <option value="2">Egg</option>
-                            <option value="3">Gluten</option>
-                            <option value="4">Grain</option>
-                            <option value="5">Peanut</option>
-                            <option value="6">Seafood</option>
-                            <option value="7">Sesame</option>
-                            <option value="8">Shellfish</option>
-                            <option value="9">Soy</option>
-                            <option value="10">Sulfite</option>
-                            <option value="11">Tree Nut</option>
-                            <option value="12">Wheat</option>
-                        </select>
-                        <label>Allergies</label>
+                    <div class="input-field col s12" id="userAllergens">
+                        <label>Allergies:</label><br>
                     </div>
-                    <label>Current Ingredients</label>
+                    <label>Current Ingredients:</label>
                     <div class="chips chips-autocomplete">
                         <input class="custom-class">
                     </div>
                 </form>
-                <a class="waves-effect waves-light btn">Save</a>
+                <a class="waves-effect waves-light btn" id="saveSettings">Save</a>
             </div>
         </aside>
 
@@ -89,8 +73,10 @@
         </section>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/general_script.js"></script>
+    <script src="./assets/js/profile_script.js"></script> 
 </body>
 
 </html>
