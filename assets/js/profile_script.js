@@ -2,13 +2,14 @@
 M.AutoInit();
         
 // Define element variables
-var saveBtn = $("#saveSettings");
+var dietEl = $("#userDiet");
 var allergenEl = $("#userAllergens");
 
 // Function calls
 getUserProfile();
 renderAllergens(allergenEl);
-saveBtn.on('click', updateDiet);
-saveBtn.on('click', updateCurrentIngredients);
+
+// Event Listeners
+dietEl.on('change', updateDiet);
 allergenEl.on('change', 'input', updateAllergen);
 
