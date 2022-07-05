@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://lh3.googleusercontent.com/YHev4Cd2l9b-4g5Cbt27TgGAiGr6RwA0T77ksuz1swNrvTNrPzPf_fC1pyRLH1PX7Fw5IfG7L2ymdIw2ZwtexCTrdClh5y7JGcjw9UnGUBk77TmKp3kSskogLYcORBuH9s6abhkqfrg=s64-p-k">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
@@ -51,66 +52,74 @@
     </div>
 
     <section id="cards">
-    <div class="section utilities">
-        <div class="row">
-            
-                    <div class="col s4">
-                        <div class="card z-depth-5">
-                            <div class="row">
-                                <h3 class="center-align">User Settings</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 allergies">
-                                            <input placeholder="Nuts, Shellfish, ect." id="allergies" type="text" class="validate">
-                                            <label for="allergies">Allergies</label>
-                                        </div>
-                                        <div class="input-field col s12 diet">
-                                            <input placeholder="Keto, Veagan, ect." id="diet" type="text" class="validate">
-                                            <label for="diet">Diet</label>
+        <div class="section utilities">
+            <div class="row">            
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">User Settings</h3>
+                            <div class="center-align col s12">
+                                <a class="waves-effects waves-light btn">Go To Favorties</a>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="diet-container">
+                                            <!-- Add functionality in the future to dynamically generate these options using JS -->
+                                            <option value="" disabled selected>Choose your diet</option>
+                                            <option value="1">Gluten Free</option>
+                                            <option value="2">Ketogenic</option>
+                                            <option value="3">Vegetarian</option>
+                                            <option value="4">Lacto-Vegetarian</option>
+                                            <option value="5">Ovo-Vegetarian</option>
+                                            <option value="6">Vegan</option>
+                                            <option value="7">Pescetarian</option>
+                                            <option value="8">Paleo</option>
+                                            <option value="9">Primal</option>
+                                            <option value="10">Low FODMAP</option>
+                                            <option value="11">Whole30</option>
+                                        </select>
+                                        <label>Diet</label>
+                                    </div>
+                                    <div class="input-field col s12 allergies">
+                                        <div id="userAllergens">
                                         </div>
                                     </div>
-                                </form>
-                                <div id="searchbtn" class="center-align col s12">
-                                    <a class="waves-effects waves-light btn   amber darken-2">Go To Favorties</a>
                                 </div>
                             </div>
                         </div>
                         
                     </div>
-                    <div class="col s4">
-                        <div class="card z-depth-5">
-                            <div class="row">
-                                <h3 class="center-align">Food Search</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 foodInput">
-                                            <input placeholder="What ingredients do you have?" id="ingredients" type="text" class="validate">
-                                            <label for="ingredients">Ingredients</label>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div  id="searchbtn" class="center-align col s12">
-                                    <a class="wave-effects waves-light btn  amber darken-2">Search</a>
-                                </div>
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Food Search</h3>
+                            <div class="center-align col s12">
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn">Search</a>
                             </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div id="foodIngredients" class="chips chips-placeholder"></div>
+                                </div>
+                            </form>                                
                         </div>
                     </div>
-                    <div class="col s4">
-                        <div class="card z-depth-5">
-                            <div class="row">
-                                <h3 class="center-align">Drink Search</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 drinkInput ">
-                                            <input placeholder="What drink ingredients do you have?" id="drinkIngredients" type="text" class="validate ">
-                                            <label for="drinkIngredients">Drink Ingredients</label>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div  id="searchbtn" class="center-align col s12">
-                                    <a class="wave-effects waves-light btn   amber darken-2">Search</a>
-                                </div>
+
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Drink Search</h3>
+                            <div class="center-align col s12">
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn">Search</a>
                             </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div id="drinkIngredients" class="chips chips-placeholder"></div>
+                                </div>
+                            </form>                                
+
                         </div>
                     </div>
                 </div>

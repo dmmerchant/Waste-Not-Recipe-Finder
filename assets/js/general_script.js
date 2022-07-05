@@ -1,3 +1,6 @@
+//Run Materialize Initialize
+M.AutoInit();
+
 //#region Global Variables
 //Screens
 var screens = [
@@ -30,7 +33,8 @@ var screens = [
         title:
         type: "drink"/"food"
     }],
-    currentIngredients:[]
+    currentDrinkIngredients:[],
+    currentFoodIngredients:[]
 }
 */
 var userProfile  // Pull from locally stored variable storedUserProfile
@@ -50,8 +54,7 @@ var allergenList = [
 ]
 //#endregion
 
-//#region Commonly Used Functions
-
+//#region Handling User Profile
 function getUserProfile() {
     userProfile = JSON.parse(localStorage.getItem("storedUserProfile"));
     //On first run, create an array for the day.
@@ -59,25 +62,29 @@ function getUserProfile() {
         createBlankProfile();
     }
 }
-    
+
 //Creates a blank user profile.
 function createBlankProfile() {
     userProfile = {
         allergens: [],
         diet: "",
         favorites: [],
-        currentIngredients:[]
+        currentDrinkIngredients:[],
+        currentFoodIngredients:[]
     } 
         
     localStorage.setItem("storedUserProfile", JSON.stringify(userProfile)) 
 }
+
+//Update Profile
 function updateProfile() {
     localStorage.setItem("storedUserProfile", JSON.stringify(userProfile))
 }
 
 
-function updateDiet() {
-    userProfile.diet = $("#userDiet option:selected").text();
+function updateDiet(diet) {
+    userProfile.diet = diet;
+
     updateProfile();
 }
 
@@ -96,9 +103,19 @@ function updateAllergen(event) {
     updateProfile();
 }
 
-function updateCurrentIngredients() {
-    userProfile.currentIngredients = $('.chips').chips('selectChip');
+
+function updateFoodIngredients(ingredients) {
+    userProfile.currentFoodIngredients = ingredients;
+    updateProfile();
 }
+function updateDrinkIngredients(ingredients) {
+    userProfile.currentDrinkIngredients = ingredients;
+    updateProfile();
+}
+
+//#endregion
+
+//#region Commonly Used Functions
 
 function renderAllergens(location) {
     console.log(allergenList)
@@ -107,7 +124,7 @@ function renderAllergens(location) {
     if (userProfile.allergens.includes(allergen)) {
         checked = ' checked="checked" '
     };
-    var checkBoxEl = $('<p><label><input type="checkbox" data-allergen="' + allergen + '" class="' + 'filled-in" ' +  checked + ' /><span>' + allergen + '</span></p>');
+    var checkBoxEl = $('<p><label><input type="checkbox" data-allergen="' + allergen + '" class="' + 'filled-in" ' +  checked + ' /><span>' + allergen + '</span></label></p>');
     console.log(checkBoxEl);
     checkBoxEl.appendTo(location)
     })
@@ -117,6 +134,38 @@ function switchScreen(name, param){
 
 }
 
+//Setup Chip Inputs
+document.addEventListener('DOMContentLoaded', function() {
+    var foodChips = document.querySelectorAll('#foodIngredients');
+    var drinkChips = document.querySelectorAll('#drinkIngredients');
+    M.Chips.init(foodChips, {
+        data: userProfile.currentFoodIngredients,
+        placeholder: "Add Ingredients",
+        secondaryPlaceholder: "+ Ingredient",
+        onChipAdd: chipsInput,
+        onChipDelete: chipsInput
+    });
+    M.Chips.init(drinkChips, {
+        data: userProfile.currentDrinkIngredients,
+        placeholder: "Add Ingredients",
+        secondaryPlaceholder: "+ Ingredient",
+        onChipAdd: chipsInput,
+        onChipDelete: chipsInput
+    });
+    function chipsInput() {
+        var parentEl = this.el.id;
+        console.log(parentEl);
+        var instance = M.Chips.getInstance(this.el);
+        var ingredients = instance.chipsData.map(function(item) {
+            return item;
+          });
+        if (parentEl === "drinkIngredients") {
+            updateDrinkIngredients(ingredients)
+        } else if (parentEl === "foodIngredients") {
+            updateFoodIngredients(ingredients)
+        }
+    };
+  });  
 //#endregion
 
 //#region API Functions
@@ -146,14 +195,16 @@ async function getFoodFact() {
     }
 
 async function searchRecipesAPI(ingredients) {
-    var requestUrl = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredients +  + '&';
-    if (!userProfile.diet || userProfile.diet == ""){
+    var requestUrl = 'https://api.spoonacular.com/recipes//complexSearch?includeIngredients=' + ingredients;
+    if (!userProfile.diet && userProfile.diet != ""){
         requestUrl = requestUrl + '&diet=' + userProfile.diet
     }
-    if (!userProfile.allergens) {
-        requestUrl = requestUrl + '&excludeIngredients=' + Arrays.toString(allergens)
+    console.log(userProfile.allergens)
+    if (userProfile.allergens.toString() != "") {
+        requestUrl = requestUrl + '&intolerances=' + userProfile.allergens.toString()
     }
-    requestUrl = addKey(requestUrl,true)
+    requestUrl = addKey(requestUrl,true);
+    console.log(requestUrl);
     const response = await fetch(requestUrl)
     if(!response.ok) {
         const message = `An error has occured: ${response.status}`;
@@ -181,9 +232,9 @@ async function searchRecipes(ingredients) {
     return `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
   }
 
-  async function searchCoctail_I() {
+  async function searchCoctail_I(ingredients) {
     // fetch request gets a list of all the repos for the node.js organization
-    var requestUrl = coctailUrl + "filter.php?i=Vodka,rum";
+    var requestUrl = coctailUrl + "filter.php?i="+ingredients;
     var requestProxyURL = useAllOrigins(requestUrl);
     
     console.log(requestUrl)
@@ -199,5 +250,6 @@ async function searchRecipes(ingredients) {
   
 //#endregion
 
+getUserProfile();
 
-
+console.log(userProfile)
