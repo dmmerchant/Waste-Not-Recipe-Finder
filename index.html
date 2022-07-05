@@ -39,9 +39,9 @@
         </div>
     </div>
 
-    <div  id="about" class="section about   ">
-       <h1 id="AboutUs"> About Us</h1>
-        <p class="center-align">
+    <div  id="about" class="section about center-align  ">
+       <p id="AboutUs"> About Us</p>
+        <p id="about center-align">
             We have all tried different apps and websites that claim to find the perfect recipe that you can make with the ingredients you have
             and we have all come to find out that these apps and websites don't work as expected. This gave us here at Waste-Not Recipe Finder the drive to create
             the best website to help YOU find the recipes you can make with the items in your pantry. Not only can you input the items you have in your pantry,
@@ -52,43 +52,26 @@
     </div>
 
     <section id="cards">
-        <div class="section utilities">
-            <div class="row">            
-                <div class="col s4">
-                    <div class="card large z-depth-5">
-                        <div class="row">
-                            <h3 class="center-align">User Settings</h3>
-                            <div class="center-align col s12">
-                                <a class="waves-effects waves-light btn">Go To Favorties</a>
-                            </div>
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <select id="diet-container">
-                                            <!-- Add functionality in the future to dynamically generate these options using JS -->
-                                            <option value="" disabled selected>Choose your diet</option>
-                                            <option value="1">Gluten Free</option>
-                                            <option value="2">Ketogenic</option>
-                                            <option value="3">Vegetarian</option>
-                                            <option value="4">Lacto-Vegetarian</option>
-                                            <option value="5">Ovo-Vegetarian</option>
-                                            <option value="6">Vegan</option>
-                                            <option value="7">Pescetarian</option>
-                                            <option value="8">Paleo</option>
-                                            <option value="9">Primal</option>
-                                            <option value="10">Low FODMAP</option>
-                                            <option value="11">Whole30</option>
-                                        </select>
-                                        <label>Diet</label>
-                                    </div>
-                                    <div class="input-field col s12 allergies">
-                                        <div id="userAllergens">
+    <div class="sectionutilities">
+        <div class="row">            
+                    <div class="col s4">
+                        <div class="card z-depth-5">
+                            <div class="row">
+                                <h3 class="center-align">User Settings</h3>
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12 allergies">
+                                            <input placeholder="Nuts, Shellfish, ect." id="allergies" type="text" class="validate">
+                                            <label for="allergies">Allergies</label>
+                                        </div>
+                                        <div class="input-field col s12 diet">
+                                            <input placeholder="Keto, Veagan, ect." id="diet" type="text" class="validate">
+                                            <label for="diet">Diet</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
                 </div>
                 <div class="col s4">
