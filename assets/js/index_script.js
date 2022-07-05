@@ -28,5 +28,5 @@ Submit Search (Drink)
 //#endregion
 
 renderAllergens(allergenEl);
-
+setFact();
 allergenEl.on('change', 'input', updateAllergen);
