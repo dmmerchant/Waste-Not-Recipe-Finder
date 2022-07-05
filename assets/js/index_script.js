@@ -26,7 +26,7 @@ Submit Search (Food)
 Submit Search (Drink)
 */
 //#endregion
-getUserProfile();
+
 renderAllergens(allergenEl);
 
 allergenEl.on('change', 'input',updateAllergen);
