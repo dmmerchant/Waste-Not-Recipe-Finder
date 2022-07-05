@@ -6,10 +6,7 @@
     background-size:cover;
     color: rgb(255, 255, 255);
     font-family: 'Fredericka the Great', cursive;
-    font-style: oblique;
-   
-   
- 
+    font-style: oblique; 
   
 }
 
@@ -20,7 +17,8 @@
 }
 
 #nav-mobile{
- font-family: 'Montserrat', sans-serif;   
+ font-family: 'Montserrat', sans-serif; 
+
 }
 
 
@@ -35,7 +33,6 @@ font-size: 45px;
     color: rgb(0, 0, 0);
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
-    font-weight: 500;
  
 }
 
@@ -49,10 +46,17 @@ font-size: 45px;
 .row{
     font-family: 'Montserrat', sans-serif;
   
+  
 }
 
 #cards{
     
-    background-color:#aeea8b;
+    background-color:#7cb3421f ;
  
 }
+
+#searchbtn{
+    margin-bottom: 3%;
+ 
+}
+

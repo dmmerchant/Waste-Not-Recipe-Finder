@@ -81,8 +81,10 @@ function updateProfile() {
     localStorage.setItem("storedUserProfile", JSON.stringify(userProfile))
 }
 
+
 function updateDiet(diet) {
     userProfile.diet = diet;
+
     updateProfile();
 }
 
@@ -100,6 +102,7 @@ function updateAllergen(event) {
     console.log(userProfile.allergens)
     updateProfile();
 }
+
 
 function updateFoodIngredients(ingredients) {
     userProfile.currentFoodIngredients = ingredients;
