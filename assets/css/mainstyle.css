@@ -58,9 +58,11 @@ font-size: 45px;
 
 #searchbtn{
     margin-bottom: 3%;
+    margin-top: 70%;
  
 }
 
-.sectionutilities{
-    position: relative;
+.col .row{
+    margin-left: 0%;
 }
+

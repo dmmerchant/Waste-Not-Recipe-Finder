@@ -52,21 +52,38 @@
     </div>
 
     <section id="cards">
-    <div class="sectionutilities">
-        <div class="row">            
-                    <div class="col s4">
-                        <div class="card z-depth-5">
-                            <div class="row">
-                                <h3 class="center-align">User Settings</h3>
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 allergies">
-                                            <input placeholder="Nuts, Shellfish, ect." id="allergies" type="text" class="validate">
-                                            <label for="allergies">Allergies</label>
-                                        </div>
-                                        <div class="input-field col s12 diet">
-                                            <input placeholder="Keto, Veagan, ect." id="diet" type="text" class="validate">
-                                            <label for="diet">Diet</label>
+        <div class="section utilities">
+            <div class="row">            
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">User Settings</h3>
+                            <div class="center-align col s12">
+                                <div class="row">
+                                <a class="waves-effects waves-light btn amber darken-2">Go To Favorties</a>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="diet-container">
+                                            <!-- Add functionality in the future to dynamically generate these options using JS -->
+                                            <option value="" disabled selected>Choose your diet</option>
+                                            <option value="1">Gluten Free</option>
+                                            <option value="2">Ketogenic</option>
+                                            <option value="3">Vegetarian</option>
+                                            <option value="4">Lacto-Vegetarian</option>
+                                            <option value="5">Ovo-Vegetarian</option>
+                                            <option value="6">Vegan</option>
+                                            <option value="7">Pescetarian</option>
+                                            <option value="8">Paleo</option>
+                                            <option value="9">Primal</option>
+                                            <option value="10">Low FODMAP</option>
+                                            <option value="11">Whole30</option>
+                                        </select>
+                                        <label>Diet</label>
+                                    </div>
+                                    <div class="input-field col s12 allergies">
+                                        <div id="userAllergens">
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +96,7 @@
                         <div class="row">
                             <h3 class="center-align">Food Search</h3>
                             <div class="center-align col s12">
-                                <a href="./foodSearch.html" class="wave-effects waves-light btn">Search</a>
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn amber darken-2">Search</a>
                             </div>
                             <form class="col s12">
                                 <div class="row">
@@ -95,7 +112,7 @@
                         <div class="row">
                             <h3 class="center-align">Drink Search</h3>
                             <div class="center-align col s12">
-                                <a href="./foodSearch.html" class="wave-effects waves-light btn">Search</a>
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn  amber darken-2 ">Search</a>
                             </div>
                             <form class="col s12">
                                 <div class="row">
