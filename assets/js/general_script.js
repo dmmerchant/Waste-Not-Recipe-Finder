@@ -192,14 +192,16 @@ async function getFoodFact() {
     }
 
 async function searchRecipesAPI(ingredients) {
-    var requestUrl = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredients +  + '&';
-    if (!userProfile.diet || userProfile.diet == ""){
+    var requestUrl = 'https://api.spoonacular.com/recipes//complexSearch?includeIngredients=' + ingredients;
+    if (!userProfile.diet && userProfile.diet != ""){
         requestUrl = requestUrl + '&diet=' + userProfile.diet
     }
-    if (!userProfile.allergens) {
-        requestUrl = requestUrl + '&excludeIngredients=' + Arrays.toString(allergens)
+    console.log(userProfile.allergens)
+    if (userProfile.allergens.toString() != "") {
+        requestUrl = requestUrl + '&intolerances=' + userProfile.allergens.toString()
     }
-    requestUrl = addKey(requestUrl,true)
+    requestUrl = addKey(requestUrl,true);
+    console.log(requestUrl);
     const response = await fetch(requestUrl)
     if(!response.ok) {
         const message = `An error has occured: ${response.status}`;
@@ -227,9 +229,9 @@ async function searchRecipes(ingredients) {
     return `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
   }
 
-  async function searchCoctail_I() {
+  async function searchCoctail_I(ingredients) {
     // fetch request gets a list of all the repos for the node.js organization
-    var requestUrl = coctailUrl + "filter.php?i=Vodka,rum";
+    var requestUrl = coctailUrl + "filter.php?i="+ingredients;
     var requestProxyURL = useAllOrigins(requestUrl);
     
     console.log(requestUrl)
