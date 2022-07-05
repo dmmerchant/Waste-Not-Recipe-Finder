@@ -12,3 +12,7 @@ body {
     border-width: 2px; */
     height: 90vh;
 }
+
+#userAllergens {
+    text-align: left;
+}
