@@ -45,6 +45,7 @@ font-size: 45px;
 
 .row{
     font-family: 'Montserrat', sans-serif;
+   
   
   
 }
@@ -60,3 +61,6 @@ font-size: 45px;
  
 }
 
+.sectionutilities{
+    position: relative;
+}
