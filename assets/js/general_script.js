@@ -76,8 +76,8 @@ function updateProfile() {
 }
 
 
-function updateDiet(diet) {
-    userProfile.diet = diet;
+function updateDiet() {
+    userProfile.diet = $("#userDiet option:selected").text();
     updateProfile();
 }
 
@@ -96,6 +96,9 @@ function updateAllergen(event) {
     updateProfile();
 }
 
+function updateCurrentIngredients() {
+    userProfile.currentIngredients = $('.chips').chips('selectChip');
+}
 
 function renderAllergens(location) {
     console.log(allergenList)
