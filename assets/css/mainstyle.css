@@ -68,11 +68,28 @@ font-size: 30px;
 }
 
 .food{
-   max-width: 75%;
+   max-width: 70%;
     float: left;
     margin-left: 10px;
+    max-height: 30%;
 }
 
 .row:after {
     background-color: #7cb3421f ;
+}
+
+.chips .input {
+    margin-left: 10px;
+}
+
+#userAllergens{
+    display: flex;
+    text-align: left;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+[type="checkbox"]+span:not(.lever) {
+
+    padding-right: 35px;
 }
