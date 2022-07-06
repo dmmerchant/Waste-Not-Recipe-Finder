@@ -71,8 +71,13 @@ font-size: 30px;
    max-width: 75%;
     float: left;
     margin-left: 10px;
+    max-height: 30%;
 }
 
 .row:after {
     background-color: #7cb3421f ;
+}
+
+.chips .input {
+    margin-left: 10px;
 }
