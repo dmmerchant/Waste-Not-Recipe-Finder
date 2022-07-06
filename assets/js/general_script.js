@@ -82,8 +82,9 @@ function updateProfile() {
 }
 
 
-function updateDiet(diet) {
-    userProfile.diet = diet;
+function updateDiet() {
+    console.log($(this).find(":selected").text());
+    userProfile.diet = $(this).find(":selected").text();
 
     updateProfile();
 }
@@ -128,6 +129,11 @@ function renderAllergens(location) {
     console.log(checkBoxEl);
     checkBoxEl.appendTo(location)
     })
+}
+
+function renderDiet(location) {
+
+
 }
 
 function switchScreen(name, param){
