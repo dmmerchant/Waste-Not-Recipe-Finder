@@ -1,3 +1,7 @@
+*{
+    background-color: #7cb3421f;
+}
+
 body {
     background-color:#7cb3421f;
 }
@@ -16,3 +20,8 @@ body {
 #userAllergens {
     text-align: left;
 }
+
+#savebtn{
+   padding-bottom: 5%;
+}
+
