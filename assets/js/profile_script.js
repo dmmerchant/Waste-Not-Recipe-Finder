@@ -1,6 +1,10 @@
 
-var allergenEl = $("#userAllergens")
-renderAllergens(allergenEl);
+var allergenEl = $("#userAllergens");
+var dietEl = $("#userDiet");
 
-allergenEl.on('change', 'input',updateAllergen);
+renderAllergens(allergenEl);
+renderDiet(dietEl);
+
+allergenEl.on('change', 'input', updateAllergen);
+dietEl.on('change', updateDiet);
 
