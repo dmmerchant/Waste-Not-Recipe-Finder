@@ -54,7 +54,6 @@ function removeFavorites(event) {
 }
 
 renderAllergens(allergenEl);
-renderDiet(dietEl);
 renderFavorites();
 allergenEl.on('change', 'input', updateAllergen);
 dietEl.on('change', updateDiet);
