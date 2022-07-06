@@ -20,11 +20,11 @@ async function renderResults(event) {
         imgEl.attr('src',element.image);
         imgEl.appendTo(cardImgEl);
         var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>')
-        favoriteEl.attr({
-            'data-id': element.id,
-            'data-img': element.image,
-            'data-title': element.title,
-            'data-type': 'food'
+        favoriteEl.data({
+            id: element.id,
+            image: element.image,
+            title: element.title,
+            type: 'food'
         })
         favoriteEl.appendTo(cardImgEl)
         cardImgEl.appendTo(cardEl)
@@ -47,6 +47,12 @@ async function renderResults(event) {
         
     });
 }
+function addFavorites(event) {
+    event.preventDefault();
+    target = $(event.target)
+    alert(target.data('id'))
 
+}
 
 bttnSearch.on('click',renderResults)
+resultCards.on('click','.addFavorite',addFavorites)
