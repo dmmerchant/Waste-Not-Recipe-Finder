@@ -39,6 +39,22 @@ var screens = [
 */
 var resultCards = $("#resultCards")
 var userProfile  // Pull from locally stored variable storedUserProfile
+var dietList = [
+    'Choose your diet',
+    'Gluten Free',
+    'Ketogenic',
+    'Vegetarian',
+    'Lacto-Vegetarian',
+    'Ovo-Vegeatarian',
+    'Vegan',
+    'Pescetarian',
+    'Paleo',
+    'Primal',
+    'Low FODMAP',
+    'Whole30'
+]
+
+
 var allergenList = [
     'Dairy',
     'Egg',
@@ -80,14 +96,6 @@ function createBlankProfile() {
 //Update Profile
 function updateProfile() {
     localStorage.setItem("storedUserProfile", JSON.stringify(userProfile))
-}
-
-
-function updateDiet() {
-    console.log($(this).find(":selected").text());
-    userProfile.diet = $(this).find(":selected").text();
-
-    updateProfile();
 }
 
 function updateAllergen(event) {
@@ -148,7 +156,7 @@ function renderAllergens(location) {
 }
 
 function renderDiet(location) {
-
+    location.options
 
 }
 
@@ -168,6 +176,38 @@ function addFavorites(event) {
 }
 
 resultCards.on('click','.addFavorite',addFavorites)
+
+//Setup Diet Select
+document.addEventListener('DOMContentLoaded', function() {
+    var dietSelect = document.querySelectorAll('#userDiet');
+    M.FormSelect.init(dietSelect, {});
+    if (!userProfile.diet) {
+        // Do nothing
+    }
+    else {
+        var userDiet = document.querySelector('select');
+        var instance = M.FormSelect.getInstance(userDiet);
+        for(var i = 0; i<userDiet.length; i++) {
+            if (userDiet.options[i].innerText === userProfile.diet) {
+                instance.input.value = userProfile.diet;
+            }
+            else {
+                // Do nothing
+            }
+        }
+        
+    }
+    
+
+    var dietEl = $('#userDiet');
+    dietEl.on('change', function() {
+        var dietSelect = M.FormSelect.getInstance(dietEl);
+        console.log(dietSelect.input.value);
+        userProfile.diet = dietSelect.input.value;
+
+        updateProfile();
+    })
+});
 
 //Setup Chip Inputs
 document.addEventListener('DOMContentLoaded', function() {
