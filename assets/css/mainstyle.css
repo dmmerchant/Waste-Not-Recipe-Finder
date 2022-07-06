@@ -93,3 +93,8 @@ font-size: 30px;
 
     padding-right: 35px;
 }
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    background-color: #ffc107;
+    border: #ffc107;
+}
