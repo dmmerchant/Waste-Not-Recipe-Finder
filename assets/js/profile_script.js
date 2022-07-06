@@ -1,5 +1,5 @@
-
 var allergenEl = $("#userAllergens");
+
 var dietEl = $("#userDiet");
 var favCards = $('#favorites-container')
 
@@ -59,3 +59,5 @@ renderFavorites();
 allergenEl.on('change', 'input', updateAllergen);
 dietEl.on('change', updateDiet);
 
+
+allergenEl.on('change', 'input', updateAllergen);
