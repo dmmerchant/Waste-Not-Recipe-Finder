@@ -39,21 +39,6 @@ var screens = [
 */
 var resultCards = $("#resultCards")
 var userProfile  // Pull from locally stored variable storedUserProfile
-var dietList = [
-    'Choose your diet',
-    'Gluten Free',
-    'Ketogenic',
-    'Vegetarian',
-    'Lacto-Vegetarian',
-    'Ovo-Vegeatarian',
-    'Vegan',
-    'Pescetarian',
-    'Paleo',
-    'Primal',
-    'Low FODMAP',
-    'Whole30'
-]
-
 
 var allergenList = [
     'Dairy',
@@ -153,11 +138,6 @@ function renderAllergens(location) {
     console.log(checkBoxEl);
     checkBoxEl.appendTo(location)
     })
-}
-
-function renderDiet(location) {
-    location.options
-
 }
 
 function switchScreen(name, param){
