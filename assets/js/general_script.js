@@ -37,6 +37,7 @@ var screens = [
     currentFoodIngredients:[]
 }
 */
+var resultCards = $("#resultCards")
 var userProfile  // Pull from locally stored variable storedUserProfile
 var allergenList = [
     'Dairy',
@@ -114,6 +115,21 @@ function updateDrinkIngredients(ingredients) {
     updateProfile();
 }
 
+function updateFavorites(idData,imageData,titleData,typeData) {
+    test = userProfile.favorites.filter(function(v){ return v["id"] == idData; })
+    console.log(test.length);
+    if (test.length === 0) {
+        userProfile.favorites.push({
+            id: idData,
+            image: imageData,
+            title: titleData,
+            type: typeData
+        })
+    };
+    updateProfile();
+
+}
+
 //#endregion
 
 //#region Commonly Used Functions
@@ -139,6 +155,19 @@ function renderDiet(location) {
 function switchScreen(name, param){
 
 }
+
+function addFavorites(event) {
+    event.preventDefault();
+    target = $(event.target).parent();
+    var id=target.data('id');
+    var image = target.data('image');
+    var title = target.data('title');
+    var type = target.data('type');
+    updateFavorites(id,image,title,type);
+    console.log(userProfile.favorites)
+}
+
+resultCards.on('click','.addFavorite',addFavorites)
 
 //Setup Chip Inputs
 document.addEventListener('DOMContentLoaded', function() {
@@ -239,7 +268,6 @@ async function searchRecipes(ingredients) {
   }
 
   async function searchCoctail_I(ingredients) {
-    // fetch request gets a list of all the repos for the node.js organization
     var requestUrl = coctailUrl + "filter.php?i="+ingredients;
     var requestProxyURL = useAllOrigins(requestUrl);
     
@@ -252,6 +280,18 @@ async function searchRecipes(ingredients) {
     return response.json()
   }
 
+  async function searchCoctailRecipe(id) {
+    var requestUrl = coctailUrl + "lookup.php?i="+id;
+    var requestProxyURL = useAllOrigins(requestUrl);
+    
+    console.log(requestUrl)
+    const response = await fetch(requestProxyURL)
+    if(!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    } 
+    return response.json()
+  }
   //#endregion
   
 //#endregion

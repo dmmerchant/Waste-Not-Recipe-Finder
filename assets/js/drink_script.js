@@ -11,6 +11,7 @@ async function renderResults(event) {
     results = (JSON.parse(results.contents))
     results.drinks.forEach(element => {
         //Parent Div
+        console.log(element)
         var colEl = $('<div class="col s12 m4">');
         var cardEl = $("<div class='card'>")
 
@@ -20,11 +21,11 @@ async function renderResults(event) {
         imgEl.attr('src',element.strDrinkThumb);
         imgEl.appendTo(cardImgEl);
         var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>')
-        favoriteEl.attr({
-            'data-id': element.idDrink,
-            'data-img': element.strDrinkThumb,
-            'data-title': element.strDrink,
-            'data-type': 'drink'
+        favoriteEl.data({
+            id: element.idDrink,
+            image: element.strDrinkThumb,
+            title: element.strDrink,
+            type: 'drink'
         })
         favoriteEl.appendTo(cardImgEl)
         cardImgEl.appendTo(cardEl)
@@ -46,6 +47,8 @@ async function renderResults(event) {
         colEl.appendTo(resultCards)
     });
 }
+
+
 
 
 bttnSearch.on('click',renderResults)
