@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="https://lh3.googleusercontent.com/YHev4Cd2l9b-4g5Cbt27TgGAiGr6RwA0T77ksuz1swNrvTNrPzPf_fC1pyRLH1PX7Fw5IfG7L2ymdIw2ZwtexCTrdClh5y7JGcjw9UnGUBk77TmKp3kSskogLYcORBuH9s6abhkqfrg=s64-p-k">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mainstyle.css">
+    <title>Waste-Not Recipe Finder</title>
+</head>
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper light-green darken-1 ">
+            <a class="brand-logo">Waste-Not Recipe Finder</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./profile.html">User Profile</a></li>
+                <li><a href="./foodSearch.html">Food</a></li>
+                <li><a href="./drinkResults.html">Drinks</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="hero-img" >
+    
+        <div class="row"  class = "card transparent z-depth-5"></div>
+            <div class="center-align section col s12 ">
+                <p id="foodFact" class="flow-text">Food Can Be Funny</p>          
+            </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <div  id="about" class="section about center-align  ">
+       <p id="AboutUs"> About Us</p>
+        <p id="about center-align">
+            We have all tried different apps and websites that claim to find the perfect recipe that you can make with the ingredients you have
+            and we have all come to find out that these apps and websites don't work as expected. This gave us here at Waste-Not Recipe Finder the drive to create
+            the best website to help YOU find the recipes you can make with the items in your pantry. Not only can you input the items you have in your pantry,
+            you can include any allergies you have and whatever diet you follow and we will provide with a list of recipes that fit just that. We also allow you
+            to input any ingredients that you may have to make a cocktail and with these inputs we will provide the best cocktails idea for you to have with your meal.
+        </p>
+        </p>
+    </div>
+
+    <section id="cards">
+        <div class="section utilities">
+            <div class="row">            
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">User Settings</h3>
+                            <div class="center-align col s12">
+                                <div class="row">
+                                <a class="waves-effects waves-light btn amber darken-2">Go To Favorties</a>
+                            </div>
+                            <div class="divider grey "></div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="diet-container">
+                                            <!-- Add functionality in the future to dynamically generate these options using JS -->
+                                            <option value="" disabled selected>Choose your diet</option>
+                                            <option value="1">Gluten Free</option>
+                                            <option value="2">Ketogenic</option>
+                                            <option value="3">Vegetarian</option>
+                                            <option value="4">Lacto-Vegetarian</option>
+                                            <option value="5">Ovo-Vegetarian</option>
+                                            <option value="6">Vegan</option>
+                                            <option value="7">Pescetarian</option>
+                                            <option value="8">Paleo</option>
+                                            <option value="9">Primal</option>
+                                            <option value="10">Low FODMAP</option>
+                                            <option value="11">Whole30</option>
+                                        </select>
+                                        <label>Diet</label>
+                                    </div>
+                                    <div class="input-field col s12 allergies">
+                                        <div id="userAllergens">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Food Search</h3>
+                            <div class="center-align col s12">
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn amber darken-2">Search</a>
+                            </div>
+                            
+                            <form class="col s12">
+                                <div class="row">
+                                    <div id="foodIngredients" class="chips chips-placeholder"></div>
+                                </div>
+                            </form>                                
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col s4">
+                    <div class="card large z-depth-5">
+                        <div class="row">
+                            <h3 class="center-align">Drink Search</h3>
+                            <div class="center-align col s12">
+                                <a href="./foodSearch.html" class="wave-effects waves-light btn  amber darken-2 ">Search</a>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div id="drinkIngredients" class="chips chips-placeholder"></div>
+                                </div>
+                            </form>                                
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body><section></section>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/js/general_script.js"></script>
+<script src="./assets/js/index_script.js"></script>
+</html>

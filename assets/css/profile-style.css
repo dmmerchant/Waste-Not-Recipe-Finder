@@ -1,0 +1,27 @@
+*{
+    background-color: #7cb3421f;
+}
+
+body {
+    background-color:#7cb3421f;
+}
+
+#settings,
+#favorites {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    /* border: solid;
+    border-width: 2px; */
+    height: 90vh;
+}
+
+#userAllergens {
+    text-align: left;
+}
+
+#savebtn{
+   padding-bottom: 5%;
+}
+

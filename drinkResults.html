@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/mainstyle.css">
+    <title>Waster-Not Recipe Finder | Food Search</title>
+</head>
+
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper light-green darken-1 ">
+            <a class="brand-logo">Waste-Not Recipe Finder</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./profile.html">User Profile</a></li>
+                <li><a href="./foodSearch.html">Food</a></li>
+                <li><a href="./drinkResults.html">Drinks</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="row">
+        <div class="col s3">
+            <h3 class="center-align">Drink Search</h3>
+            <div class="center-align">
+                <button id="drinkSearch" class="wave-effects waves-light btn  amber darken-2">Search</button>
+            </div>
+            <div id="drinkIngredients" class="chips chips-placeholder"></div>
+        </div>
+
+        <div class="col s9">
+            <h3 class="center-align">Recipes</h3>
+            <div id="resultCards" class="row"></div>
+        </div>
+    </div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./assets/js/general_script.js"></script>
+<script src="./assets/js/drink_script.js"></script>
+</html>
