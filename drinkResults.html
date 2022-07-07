@@ -36,6 +36,31 @@
                 <button id="drinkSearch" class="wave-effects waves-light btn  amber darken-2">Search</button>
             </div>
             <div id="drinkIngredients" class="chips chips-placeholder"></div>
+            <div class="input-field col s12">
+                <select id="userDiet">
+                    <!-- Add functionality in the future to dynamically generate these options using JS -->
+                    <option value="" disabled selected>Choose your diet</option>
+                    <option value="1">Gluten Free</option>
+                    <option value="2">Ketogenic</option>
+                    <option value="3">Vegetarian</option>
+                    <option value="4">Lacto-Vegetarian</option>
+                    <option value="5">Ovo-Vegetarian</option>
+                    <option value="6">Vegan</option>
+                    <option value="7">Pescetarian</option>
+                    <option value="8">Paleo</option>
+                    <option value="9">Primal</option>
+                    <option value="10">Low FODMAP</option>
+                    <option value="11">Whole30</option>
+                </select>
+                <label>Diet:</label>
+            </div>
+            <div class="input-field col s12">
+                <label>Allergies</label>
+                <div class="input-field col s12 allergies">
+                    <div id="userAllergens">
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col s9">

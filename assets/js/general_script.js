@@ -2,27 +2,6 @@
 M.AutoInit();
 
 //#region Global Variables
-//Screens
-var screens = [
-    {
-        ScreenName: "Home",
-        ScreenFile: "./index.html"
-    },
-    {
-        ScreenName: "Profile",
-        ScreenFile: "./profile.html"
-    },
-    {
-        ScreenName: "Results",
-        ScreenFile: "./single-repo.html?ingredients="
-    },
-    {
-        ScreenName: "Recipe",
-        ScreenFile: "recipe.html"
-    }
-]
-
-
 /* storedUserProfile object notation
 {
     allergens: [],
@@ -108,19 +87,30 @@ function updateDrinkIngredients(ingredients) {
     updateProfile();
 }
 
-function updateFavorites(idData,imageData,titleData,typeData) {
-    test = userProfile.favorites.filter(function(v){ return v["id"] == idData; })
-    console.log(test.length);
-    if (test.length === 0) {
+function updateFavorites(idAction,idData,imageData,titleData,typeData) {
+    if (!idAction) {
         userProfile.favorites.push({
             id: idData,
             image: imageData,
             title: titleData,
             type: typeData
-        })
+        });
+    } else {
+        const index = userProfile.favorites.findIndex((favorite) => {
+            return favorite.id === idData && favorite.type === typeData
+          });
+        userProfile.favorites.splice(index,1)
     };
     updateProfile();
+}
 
+function existingFavoriteCheck(idData,idType) {
+    var favCheck = userProfile.favorites.filter(function(v){ return v["id"] == idData && v["type"] == idType; })
+    if (favCheck.length === 0) {
+        return false
+    } else {
+        return true
+    }
 }
 
 //#endregion
@@ -140,19 +130,21 @@ function renderAllergens(location) {
     })
 }
 
-function switchScreen(name, param){
-
-}
-
 function addFavorites(event) {
     event.preventDefault();
-    target = $(event.target).parent();
-    var id=target.data('id');
-    var image = target.data('image');
-    var title = target.data('title');
-    var type = target.data('type');
-    updateFavorites(id,image,title,type);
-    console.log(userProfile.favorites)
+    target = $(event.target);
+    parentTarget = $(event.target).parent();
+    var id=parentTarget.data('id');
+    var image = parentTarget.data('image');
+    var title = parentTarget.data('title');
+    var type = parentTarget.data('type');
+    var action = existingFavoriteCheck(id,type);
+    updateFavorites(action,id,image,title,type);
+    if (action) {
+        target.text("favorite")
+    } else {
+        target.text("remove")
+    }
 }
 
 resultCards.on('click','.addFavorite',addFavorites)
@@ -161,7 +153,7 @@ resultCards.on('click','.addFavorite',addFavorites)
 document.addEventListener('DOMContentLoaded', function() {
     var dietSelect = document.querySelectorAll('#userDiet');
     M.FormSelect.init(dietSelect, {});
-    if (!userProfile.diet) {
+    if (!userProfile.diet || dietSelect.length === 0) {
         // Do nothing
     }
     else {
@@ -243,14 +235,14 @@ async function getFoodFact() {
     requestUrl = addKey(requestUrl,false)
     const response = await fetch(requestUrl)
     if(!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
+        const message = response.status;
+        throw new Error('An error has occured:' + message);
     } 
     return response.json()
     }
 
 async function searchRecipesAPI(ingredients) {
-    var requestUrl = 'https://api.spoonacular.com/recipes//complexSearch?includeIngredients=' + ingredients;
+    var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + ingredients;
     if (!userProfile.diet && userProfile.diet != ""){
         requestUrl = requestUrl + '&diet=' + userProfile.diet
     }
@@ -268,10 +260,10 @@ async function searchRecipesAPI(ingredients) {
     return response.json()
     }
 
-async function searchRecipes(ingredients) {
-        var requestUrl = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredients ;
-        requestUrl = addKey(requestUrl,true)
-        const response = await fetch(requestUrl + '&apiKey='+spoonacularKey)
+async function getRecipeCard(id) {
+        var requestUrl = 'https://api.spoonacular.com/recipes/' + id + '/card?';
+        requestUrl = addKey(requestUrl,false)
+        const response = await fetch(requestUrl)
         if(!response.ok) {
             const message = `An error has occured: ${response.status}`;
             throw new Error(message);

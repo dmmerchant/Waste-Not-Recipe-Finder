@@ -14,12 +14,12 @@ function renderFavorites() {
         var imgEl = $("<img>");
         imgEl.attr('src',element.image);
         imgEl.appendTo(cardImgEl);
-        var favoriteEl = $('<a class="removeFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove</i></a>')
+        var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove</i></a>')
         favoriteEl.data({
             id: element.id,
             image: element.image,
             title: element.title,
-            type: 'food'
+            type: element.type
         })
         favoriteEl.appendTo(cardImgEl)
         cardImgEl.appendTo(cardEl)
@@ -30,8 +30,8 @@ function renderFavorites() {
         cardTitleEl.text(element.title)
         //<p><a href="#">Link to Recipe</a></p>
         var cardLinkEl = $('<p>');
-        var cardLinkRefEl = $('<a target="_blank">Link to Recipe</a></p>');
-        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=drink')
+        var cardLinkRefEl = $('<a">Link to Recipe</a></p>');
+        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=' + element.type)
         cardLinkRefEl.appendTo(cardLinkEl)
         //compile content div
         cardTitleEl.appendTo(cardContentEl)
@@ -42,21 +42,9 @@ function renderFavorites() {
         
     });
 }
-function removeFavorites(event) {
-    event.preventDefault();
-    target = $(event.target).parent();
-    var id=target.data('id');
-    var image = target.data('image');
-    var title = target.data('title');
-    var type = target.data('type');
-    updateFavorites(id,image,title,type);
-    console.log(userProfile.favorites)
-}
+
 
 renderAllergens(allergenEl);
 renderFavorites();
 allergenEl.on('change', 'input', updateAllergen);
-dietEl.on('change', updateDiet);
-
-
-allergenEl.on('change', 'input', updateAllergen);
+favCards.on('click','.addFavorite',addFavorites)
