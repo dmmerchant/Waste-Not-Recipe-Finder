@@ -44,6 +44,11 @@ font-size: 30px;
 
 }
 
+#about{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .row{
     font-family: 'Montserrat', sans-serif;
    
@@ -97,4 +102,6 @@ font-size: 30px;
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
     background-color: #ffc107;
     border: #ffc107;
+
 }
+
