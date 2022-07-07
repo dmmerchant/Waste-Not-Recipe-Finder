@@ -42,6 +42,7 @@ async function getDrinkRecipe() {
     results = (JSON.parse(results.contents))
     drink = results.drinks[0]
     console.log(drink)
+    
     var cardEl = $('<div class="card">')
     cardEl.css('max-width','500px')
     //Card Image and title
@@ -75,6 +76,10 @@ async function getDrinkRecipe() {
     cardActionPel.appendTo(cardActionEl)
     cardActionEl.appendTo(cardEl)
 
-    cardEl.appendTo(recipeEl)
+    var rowEl = $('<div class="row">')
+    var colEl = $('<div class="col s6 offset-s3">')
+    cardEl.appendTo(colEl)
+    colEl.appendTo(rowEl)
+    rowEl.appendTo(recipeEl)
 }
 renderRecipe()
