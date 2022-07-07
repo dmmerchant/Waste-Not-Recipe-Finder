@@ -19,7 +19,7 @@ function renderFavorites() {
             id: element.id,
             image: element.image,
             title: element.title,
-            type: 'food'
+            type: element.type
         })
         favoriteEl.appendTo(cardImgEl)
         cardImgEl.appendTo(cardEl)
@@ -30,8 +30,8 @@ function renderFavorites() {
         cardTitleEl.text(element.title)
         //<p><a href="#">Link to Recipe</a></p>
         var cardLinkEl = $('<p>');
-        var cardLinkRefEl = $('<a target="_blank">Link to Recipe</a></p>');
-        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=drink')
+        var cardLinkRefEl = $('<a">Link to Recipe</a></p>');
+        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=' + element.type)
         cardLinkRefEl.appendTo(cardLinkEl)
         //compile content div
         cardTitleEl.appendTo(cardContentEl)

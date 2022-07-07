@@ -47,7 +47,7 @@ async function renderResults() {
         //<p><a href="#">Link to Recipe</a></p>
         var cardLinkEl = $('<p>');
         var cardLinkRefEl = $('<a>Link to Recipe</a></p>');
-        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=drink')
+        cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=food')
         cardLinkRefEl.appendTo(cardLinkEl)
         //compile content div
         cardTitleEl.appendTo(cardContentEl)

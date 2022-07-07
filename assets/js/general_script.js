@@ -153,7 +153,7 @@ resultCards.on('click','.addFavorite',addFavorites)
 document.addEventListener('DOMContentLoaded', function() {
     var dietSelect = document.querySelectorAll('#userDiet');
     M.FormSelect.init(dietSelect, {});
-    if (!userProfile.diet) {
+    if (!userProfile.diet || dietSelect.length === 0) {
         // Do nothing
     }
     else {
@@ -235,14 +235,14 @@ async function getFoodFact() {
     requestUrl = addKey(requestUrl,false)
     const response = await fetch(requestUrl)
     if(!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
+        const message = response.status;
+        throw new Error('An error has occured:' + message);
     } 
     return response.json()
     }
 
 async function searchRecipesAPI(ingredients) {
-    var requestUrl = 'https://api.spoonacular.com/recipes//complexSearch?includeIngredients=' + ingredients;
+    var requestUrl = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + ingredients;
     if (!userProfile.diet && userProfile.diet != ""){
         requestUrl = requestUrl + '&diet=' + userProfile.diet
     }
@@ -260,10 +260,10 @@ async function searchRecipesAPI(ingredients) {
     return response.json()
     }
 
-async function searchRecipes(ingredients) {
-        var requestUrl = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients=' + ingredients ;
-        requestUrl = addKey(requestUrl,true)
-        const response = await fetch(requestUrl + '&apiKey='+spoonacularKey)
+async function getRecipeCard(id) {
+        var requestUrl = 'https://api.spoonacular.com/recipes/' + id + '/card?';
+        requestUrl = addKey(requestUrl,false)
+        const response = await fetch(requestUrl)
         if(!response.ok) {
             const message = `An error has occured: ${response.status}`;
             throw new Error(message);
