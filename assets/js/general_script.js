@@ -2,27 +2,6 @@
 M.AutoInit();
 
 //#region Global Variables
-//Screens
-var screens = [
-    {
-        ScreenName: "Home",
-        ScreenFile: "./index.html"
-    },
-    {
-        ScreenName: "Profile",
-        ScreenFile: "./profile.html"
-    },
-    {
-        ScreenName: "Results",
-        ScreenFile: "./single-repo.html?ingredients="
-    },
-    {
-        ScreenName: "Recipe",
-        ScreenFile: "recipe.html"
-    }
-]
-
-
 /* storedUserProfile object notation
 {
     allergens: [],
@@ -108,19 +87,30 @@ function updateDrinkIngredients(ingredients) {
     updateProfile();
 }
 
-function updateFavorites(idData,imageData,titleData,typeData) {
-    test = userProfile.favorites.filter(function(v){ return v["id"] == idData; })
-    console.log(test.length);
-    if (test.length === 0) {
+function updateFavorites(idAction,idData,imageData,titleData,typeData) {
+    if (!idAction) {
         userProfile.favorites.push({
             id: idData,
             image: imageData,
             title: titleData,
             type: typeData
-        })
+        });
+    } else {
+        const index = userProfile.favorites.findIndex((favorite) => {
+            return favorite.id === idData && favorite.type === typeData
+          });
+        userProfile.favorites.splice(index,1)
     };
     updateProfile();
+}
 
+function existingFavoriteCheck(idData,idType) {
+    var favCheck = userProfile.favorites.filter(function(v){ return v["id"] == idData && v["type"] == idType; })
+    if (favCheck.length === 0) {
+        return false
+    } else {
+        return true
+    }
 }
 
 //#endregion
@@ -140,19 +130,21 @@ function renderAllergens(location) {
     })
 }
 
-function switchScreen(name, param){
-
-}
-
 function addFavorites(event) {
     event.preventDefault();
-    target = $(event.target).parent();
-    var id=target.data('id');
-    var image = target.data('image');
-    var title = target.data('title');
-    var type = target.data('type');
-    updateFavorites(id,image,title,type);
-    console.log(userProfile.favorites)
+    target = $(event.target);
+    parentTarget = $(event.target).parent();
+    var id=parentTarget.data('id');
+    var image = parentTarget.data('image');
+    var title = parentTarget.data('title');
+    var type = parentTarget.data('type');
+    var action = existingFavoriteCheck(id,type);
+    updateFavorites(action,id,image,title,type);
+    if (action) {
+        target.text("favorite")
+    } else {
+        target.text("remove")
+    }
 }
 
 resultCards.on('click','.addFavorite',addFavorites)

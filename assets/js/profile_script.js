@@ -14,7 +14,7 @@ function renderFavorites() {
         var imgEl = $("<img>");
         imgEl.attr('src',element.image);
         imgEl.appendTo(cardImgEl);
-        var favoriteEl = $('<a class="removeFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove</i></a>')
+        var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">remove</i></a>')
         favoriteEl.data({
             id: element.id,
             image: element.image,
@@ -42,21 +42,9 @@ function renderFavorites() {
         
     });
 }
-function removeFavorites(event) {
-    event.preventDefault();
-    target = $(event.target).parent();
-    var id=target.data('id');
-    var image = target.data('image');
-    var title = target.data('title');
-    var type = target.data('type');
-    updateFavorites(id,image,title,type);
-    console.log(userProfile.favorites)
-}
+
 
 renderAllergens(allergenEl);
 renderFavorites();
 allergenEl.on('change', 'input', updateAllergen);
-dietEl.on('change', updateDiet);
-
-
-allergenEl.on('change', 'input', updateAllergen);
+favCards.on('click','.addFavorite',addFavorites)

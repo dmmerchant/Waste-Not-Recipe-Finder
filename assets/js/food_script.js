@@ -1,8 +1,15 @@
 var bttnSearch = $("#foodSearch")
 var resultCards = $("#resultCards")
+var allergenEl = $("#userAllergens");
 
-async function renderResults(event) {
+var dietEl = $("#userDiet");
+
+function searchClick(event) {
     event.preventDefault();
+    renderResults()
+}
+
+async function renderResults() {
     resultCards.empty();
     ingredients = userProfile.currentFoodIngredients.map(function(item) {
             return item['tag'];
@@ -13,13 +20,17 @@ async function renderResults(event) {
         //Parent Div
         var colEl = $('<div class="col s12 m4">');
         var cardEl = $("<div class='card'>")
-
+        
         //Card Image Div
+        var iconName = "favorite"
+        if (existingFavoriteCheck(element.id,'food')) {
+            iconName="remove"
+        }
         var cardImgEl = $("<div class='card-image'>");
         var imgEl = $("<img>");
         imgEl.attr('src',element.image);
         imgEl.appendTo(cardImgEl);
-        var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>')
+        var favoriteEl = $('<a class="addFavorite btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">' + iconName + '</i></a>')
         favoriteEl.data({
             id: element.id,
             image: element.image,
@@ -35,7 +46,7 @@ async function renderResults(event) {
         cardTitleEl.text(element.title)
         //<p><a href="#">Link to Recipe</a></p>
         var cardLinkEl = $('<p>');
-        var cardLinkRefEl = $('<a target="_blank">Link to Recipe</a></p>');
+        var cardLinkRefEl = $('<a>Link to Recipe</a></p>');
         cardLinkRefEl.attr('href','./recipe.html?id=' + element.id + '&type=drink')
         cardLinkRefEl.appendTo(cardLinkEl)
         //compile content div
@@ -47,12 +58,12 @@ async function renderResults(event) {
         
     });
 }
-function addFavorites(event) {
-    event.preventDefault();
-    target = $(event.target)
-    alert(target.data('id'))
 
-}
 
-bttnSearch.on('click',renderResults)
-resultCards.on('click','.addFavorite',addFavorites)
+bttnSearch.on('click',searchClick)
+renderAllergens(allergenEl);
+renderResults();
+allergenEl.on('change', 'input', updateAllergen);
+
+
+allergenEl.on('change', 'input', updateAllergen);
