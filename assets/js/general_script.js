@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //#region API Functions
 
 //#region Spoonacular APIs
-
+var apiRequests = 0
 var spoonacularKey = '802da09f12f34593b83b58c5932e27a2'
 var defaultResults = 10
 function addKey(URL,searchFunction) {
@@ -229,15 +229,29 @@ function addKey(URL,searchFunction) {
     return URL + apiKey
 }
 }
+function resetSpoonacularKey() {
+    apiRequests = 0;
+    spoonacularKey = '802da09f12f34593b83b58c5932e27a2';
+}
+
 
 async function getFoodFact() {
     var requestUrl = 'https://api.spoonacular.com/food/trivia/random?';
     requestUrl = addKey(requestUrl,false)
     const response = await fetch(requestUrl)
     if(!response.ok) {
-        const message = response.status;
-        throw new Error('An error has occured:' + message);
-    } 
+        apiRequests++
+        spoonacularKey = "a9ec30f6bac1486d930e1c473c69be61"
+        if(apiRequests === 1) {
+            getFoodFact()
+        }else {
+            resetSpoonacularKey()
+            const message = response.status;
+            throw new Error('An error has occured:' + message);
+        }        
+    } else {
+        resetSpoonacularKey()
+    }
     return response.json()
     }
 
