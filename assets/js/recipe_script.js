@@ -42,7 +42,7 @@ async function getDrinkRecipe() {
     results = (JSON.parse(results.contents))
     drink = results.drinks[0]
     console.log(drink)
-    var cardEl = $('<div class = "card">')
+    var cardEl = $('<div class="card">')
     cardEl.css('max-width','500px')
     //Card Image and title
     var cardImgEl = $('<div class="card-image">')
